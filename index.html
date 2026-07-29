@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="9HvV_MPXWlPB06KMwelS_sWi2caNCp8y-pN2Q0XkAzA" />
-    <title>NOVA AI | Home of MINIMA</title>
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <title>Nova AI | Home of Minima - Intelligent. Ultra-Fast. Minimal.</title>
+    <meta name="description" content="Welcome to the official home of Nova AI and Minima. An intelligent, ultra-fast, and minimal ecosystem designed for peak automation performance. Explore our project repository.">
+    <meta name="keywords" content="Nova AI, Minima, Nova AI GitHub, Intelligent, Ultra-Fast, Minimal, Nova, AI, Open Source AI">
+    
+    <meta property="og:title" content="Nova AI | Home of Minima" />
+    <meta property="og:description" content="Intelligent. Ultra-Fast. Minimal." />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
 
     <style>
-        /* --- CSS VARIABLES & RESET --- */
         :root {
             --bg-color: #070913;
             --card-bg: rgba(18, 24, 43, 0.65);
@@ -24,871 +30,92 @@
             --gradient-glow: linear-gradient(135deg, #00f0ff, #7000ff);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* --- BACKGROUND CANVAS --- */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* --- NAVBAR --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            background: rgba(7, 9, 19, 0.7);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .logo span {
-            background: var(--gradient-glow);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--gradient-glow);
-            border-radius: 8px;
-            display: grid;
-            place-items: center;
-            font-size: 1rem;
-            color: #fff;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: #fff;
-        }
-
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--gradient-glow);
-            border-radius: 2px;
-        }
-
-        .btn-primary {
-            background: var(--gradient-glow);
-            color: #fff;
-            padding: 0.7rem 1.5rem;
-            border-radius: 30px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 4px 20px rgba(0, 240, 255, 0.25);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(112, 0, 255, 0.4);
-        }
-
-        .btn-primary:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            color: #fff;
-            padding: 0.7rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* --- PAGE VIEWS (SINGLE PAGE APP SETUP) --- */
-        main {
-            flex: 1;
-            margin-top: 80px;
-        }
-
-        .page-section {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .page-section.active {
-            display: block;
-            opacity: 1;
-        }
-
-        /* --- HOME PAGE --- */
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            min-height: calc(100vh - 160px);
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0, 240, 255, 0.1);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            color: var(--primary-cyan);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.8rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .hero-title span {
-            background: var(--gradient-glow);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-description {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .hero-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 2.5rem;
-            position: relative;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            overflow: hidden;
-        }
-
-        .hero-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0,240,255,0.1) 0%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
-        }
-
-        .minima-badge-large {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 2rem;
-        }
-
-        .model-tag {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .stat-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            padding: 1.2rem;
-            border-radius: 16px;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-cyan);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* --- MINIMA HIGHLIGHT SECTION --- */
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem auto;
-        }
-
-        .section-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 2rem;
-            border-radius: 20px;
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 240, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 240, 255, 0.1);
-            color: var(--primary-cyan);
-            border-radius: 12px;
-            display: grid;
-            place-items: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* --- INTERACTIVE DEMO PAGE --- */
-        .demo-container {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            height: 600px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        .demo-sidebar {
-            background: rgba(0, 0, 0, 0.2);
-            border-right: 1px solid var(--border-color);
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .preset-btn {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 0.8rem 1rem;
-            border-radius: 10px;
-            text-align: left;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .preset-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--primary-cyan);
-        }
-
-        .chat-area {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: rgba(0, 0, 0, 0.4);
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .chat-messages {
-            padding: 2rem;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            height: 100%;
-            scroll-behavior: smooth;
-        }
-
-        .message {
-            display: flex;
-            gap: 1rem;
-            max-width: 85%;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .message.user {
-            align-self: flex-end;
-            flex-direction: row-reverse;
-        }
-
-        .avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-weight: bold;
-            font-size: 0.85rem;
-            flex-shrink: 0;
-        }
-
-        .user .avatar {
-            background: var(--primary-purple);
-            color: #fff;
-        }
-
-        .ai .avatar {
-            background: var(--primary-cyan);
-            color: #000;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-        }
-
-        .msg-content {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem 1.2rem;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            line-height: 1.6;
-            font-size: 0.95rem;
-            word-break: break-word;
-        }
-
-        .user .msg-content {
-            background: rgba(112, 0, 255, 0.2);
-            border-color: rgba(112, 0, 255, 0.4);
-        }
-
-        .msg-content pre {
-            background: #0d1117;
-            border: 1px solid var(--border-color);
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 0.8rem 0;
-            font-family: monospace;
-            color: var(--primary-cyan);
-        }
-
-        .msg-content code {
-            background: rgba(0, 240, 255, 0.1);
-            color: var(--primary-cyan);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-
-        .msg-content.error-msg {
-            border-color: rgba(255, 90, 90, 0.4);
-            background: rgba(255, 90, 90, 0.08);
-            color: #ffb4b4;
-        }
-
-        .chat-input-area {
-            padding: 1.5rem;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            gap: 1rem;
-            background: rgba(7, 9, 19, 0.8);
-        }
-
-        .chat-input {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            border-radius: 30px;
-            padding: 0.8rem 1.5rem;
-            color: #fff;
-            outline: none;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .chat-input:focus {
-            border-color: var(--primary-cyan);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-        }
-
-        .chat-input:disabled {
-            opacity: 0.6;
-        }
-
-        .typing-dots span {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--primary-cyan);
-            animation: bounce 1.4s infinite ease-in-out both;
-            margin: 0 2px;
-        }
-
-        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
-
-        @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1.0); }
-        }
-
-        /* --- ABOUT & CONTACT --- */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .contact-form {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .form-group label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .form-group input, .form-group textarea {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            padding: 0.8rem 1rem;
-            border-radius: 10px;
-            color: #fff;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary-cyan);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 3rem 2rem 1.5rem 2rem;
-            margin-top: auto;
-            background: rgba(7, 9, 19, 0.9);
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .footer-text {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.2rem;
-        }
-
-        .social-links a {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            color: var(--primary-cyan);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            .hero, .about-content {
-                grid-template-columns: 1fr;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .demo-container {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-            .demo-sidebar {
-                display: none;
-            }
-            .hero-title {
-                font-size: 2.8rem;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: rgba(7, 9, 19, 0.7); border-bottom: 1px solid var(--border-color); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.5rem; color: #fff; text-decoration: none; cursor: pointer; }
+        .logo span { background: var(--gradient-glow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-icon { width: 32px; height: 32px; background: var(--gradient-glow); border-radius: 8px; display: grid; place-items: center; font-size: 1rem; color: #fff; box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-link { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: var(--transition); cursor: pointer; position: relative; padding: 0.5rem 0; }
+        .nav-link:hover, .nav-link.active { color: #fff; }
+        .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--gradient-glow); border-radius: 2px; }
+        .btn-primary { background: var(--gradient-glow); color: #fff; padding: 0.7rem 1.5rem; border-radius: 30px; border: none; font-weight: 600; cursor: pointer; transition: var(--transition); box-shadow: 0 4px 20px rgba(0, 240, 255, 0.25); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(112, 0, 255, 0.4); }
+        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: #fff; padding: 0.7rem 1.5rem; border-radius: 30px; font-weight: 600; cursor: pointer; transition: var(--transition); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+        main { flex: 1; margin-top: 80px; }
+        .page-section { display: none; opacity: 0; transition: opacity 0.4s ease-in-out; max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        .page-section.active { display: block; opacity: 1; }
+        .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; min-height: calc(100vh - 160px); }
+        .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 240, 255, 0.1); border: 1px solid rgba(0, 240, 255, 0.2); color: var(--primary-cyan); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .hero-title { font-family: 'Space Grotesk', sans-serif; font-size: 3.8rem; line-height: 1.1; margin-bottom: 1.5rem; font-weight: 700; }
+        .hero-title span { background: var(--gradient-glow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-description { color: var(--text-muted); font-size: 1.35rem; line-height: 1.6; margin-bottom: 2rem; letter-spacing: 0.5px; }
+        .hero-description strong { color: #fff; font-weight: 700; }
+        .hero-actions { display: flex; gap: 1rem; }
+        .hero-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 24px; padding: 2.5rem; position: relative; backdrop-filter: blur(10px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); overflow: hidden; }
+        .hero-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,240,255,0.1) 0%, rgba(0,0,0,0) 70%); pointer-events: none; }
+        .minima-badge-large { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
+        .model-tag { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
     </style>
 </head>
 <body>
 
-    <!-- Particle Canvas Background -->
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Navigation -->
     <header>
         <div class="nav-container">
-            <a class="logo" onclick="switchTab('home')">
-                <div class="logo-icon"><i class="fa-solid fa-brain"></i></div>
-                NOVA <span>AI</span>
+            <a class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <span>NOVA AI</span>
             </a>
             <ul class="nav-links">
-                <li><a class="nav-link active" onclick="switchTab('home')">Home</a></li>
-                <li><a class="nav-link" onclick="switchTab('minima')">MINIMA Model</a></li>
-                <li><a class="nav-link" onclick="switchTab('about')">About Us</a></li>
-                <li><a class="nav-link" onclick="switchTab('contact')">Contact</a></li>
+                <li><a class="nav-link active">Home</a></li>
+                <li><a class="nav-link">Features</a></li>
+                <li><a class="nav-link">Docs</a></li>
             </ul>
+            <button class="btn-primary">Get Started</button>
         </div>
     </header>
 
     <main>
-        <!-- PAGE 1: HOME PAGE -->
-        <section id="home" class="page-section active">
+        <section class="page-section active">
             <div class="hero">
-                <div class="hero-text">
-                    <div class="badge">
-                        <i class="fa-solid fa-sparkles"></i> Introducing MINIMA v2.5
-                    </div>
-                    <h1 class="hero-title">Intelligent. Ultra-Fast. <span>MINIMA.</span></h1>
+                <div>
+                    <div class="badge"><i class="fa-solid fa-bolt"></i> Next-Gen Architecture</div>
+                    <h1 class="hero-title">Experience <span>Nova AI</span></h1>
+                    
                     <p class="hero-description">
-                        NOVA AI presents MINIMA—the next-generation lightweight artificial intelligence architecture. Unmatched efficiency, zero latency, and extreme reasoning compressed into a minimal footprint.
+                        <strong>Intelligent.</strong> 
+                        <strong>Ultra-Fast.</strong> 
+                        <strong>Minimal.</strong>
                     </p>
+                    
                     <div class="hero-actions">
-                        <button class="btn-secondary" onclick="switchTab('minima')">Read Tech Paper</button>
+                        <button class="btn-primary"><i class="fa-brands fa-github"></i> Repository</button>
+                        <button class="btn-secondary">Learn More</button>
                     </div>
                 </div>
+
                 <div class="hero-card">
                     <div class="minima-badge-large">
-                        <div>
-                            <div style="color: var(--text-muted); font-size: 0.85rem;">FLAGSHIP MODEL</div>
-                            <div class="model-tag">MINIMA <span>v2.5</span></div>
-                        </div>
-                        <i class="fa-solid fa-microchip" style="font-size: 2.5rem; color: var(--primary-cyan);"></i>
+                        <div class="model-tag">MINIMA</div>
+                        <div class="badge" style="margin: 0;">v1.0.0-alpha</div>
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                        Engineered with state-of-the-art sparse attention dynamics to perform complex reasoning in fractions of a millisecond.
+                    <p style="color: var(--text-muted); line-height: 1.5;">
+                        The minimalist engine driving ultra-fast processing speeds across the entire Nova AI framework.
                     </p>
                     <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-number">10x</div>
-                            <div class="stat-label">Faster Inference</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">99.4%</div>
-                            <div class="stat-label">Accuracy Index</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2.1B</div>
-                            <div class="stat-label">Hyper-Params</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">&lt; 5ms</div>
-                            <div class="stat-label">Latency Rate</div>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- PAGE 2: MINIMA MODEL DEEP DIVE -->
-        <section id="minima" class="page-section">
-            <div class="section-header">
-                <div class="badge">THE CORE TECHNOLOGY</div>
-                <h2>Why MINIMA Outperforms</h2>
-                <p>Designed from the ground up by NOVA AI researchers to strip away overhead without sacrificing intelligence.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
-                    <h3>Micro-Footprint Architecture</h3>
-                    <p>MINIMA runs natively on edge devices, smartphones, or enterprise cloud setups with an unprecedentedly small memory profile.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
-                    <h3>Adaptive Reasoning</h3>
-                    <p>Dynamically scales context parameters based on task complexity, granting instant answers to simple tasks and deep reflection for complex problems.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>Private & Secure</h3>
-                    <p>Because MINIMA can execute locally on low-power hardware, your sensitive data never has to leave your local environment.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAGE 4: ABOUT NOVA AI -->
-        <section id="about" class="page-section">
-            <div class="about-content">
-                <div>
-                    <div class="badge">ABOUT NOVA AI</div>
-                    <h2 style="font-family: 'Space Grotesk'; font-size: 2.5rem; margin-bottom: 1.5rem;">Pioneering Compact Artificial Intelligence</h2>
-                    <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">
-                        Founded in 2024, NOVA AI set out with a simple mission: stop building bigger, sluggish AI models and start building smarter, faster ones.
-                    </p>
-                    <p style="color: var(--text-muted); line-height: 1.7;">
-                        Our flagship release, MINIMA, proves that hyper-optimized architectures can surpass massive legacy LLMs in execution speed, environmental cost, and precision.
-                    </p>
-                </div>
-                <div class="hero-card" style="text-align: center;">
-                    <i class="fa-solid fa-rocket" style="font-size: 4rem; color: var(--primary-cyan); margin-bottom: 1rem;"></i>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">The NOVA Vision</h3>
-                    <p style="color: var(--text-muted);">Democratizing AI computing power for every device across the globe.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PAGE 5: CONTACT -->
-        <section id="contact" class="page-section">
-            <div class="section-header">
-                <h2>Get in Touch</h2>
-                <p>Interested in deploying MINIMA in your infrastructure? Let's connect.</p>
-            </div>
-            <div style="max-width: 600px; margin: 0 auto;">
-                <form class="contact-form" action="https://formsubmit.co/laksh2ca@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="New message from NOVA AI contact form">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <div class="form-group">
-                        <label>Your Name</label>
-                        <input type="text" name="name" required placeholder="John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" name="email" required placeholder="john@company.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea rows="4" name="message" required placeholder="Tell us about your project or inquiry..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary" style="justify-content: center;">Send Message</button>
-                </form>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="logo">
-                <div class="logo-icon"><i class="fa-solid fa-brain"></i></div>
-                NOVA <span>AI</span>
-            </div>
-            <div class="footer-text">
-                &copy; 2026 NOVA AI Inc. Creator of MINIMA AI. All rights reserved.
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-brands fa-discord"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript logic -->
-    <script>
-        // --- 1. SINGLE PAGE NAVIGATION LOGIC ---
-        function switchTab(tabId) {
-
-            document.querySelectorAll('.page-section').forEach(section => {
-                section.classList.remove('active');
-            });
-
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-
-
-            const targetSection = document.getElementById(tabId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-
-
-            const activeNav = Array.from(document.querySelectorAll('.nav-link')).find(link => 
-                link.getAttribute('onclick') && link.getAttribute('onclick').includes(tabId)
-            );
-            if (activeNav) {
-                activeNav.classList.add('active');
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // --- 3. BACKGROUND PARTICLES CANVAS ---
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const particles = Array.from({ length: 45 }, () => ({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            radius: Math.random() * 2 + 1,
-            dx: (Math.random() - 0.5) * 0.5,
-            dy: (Math.random() - 0.5) * 0.5,
-            alpha: Math.random() * 0.5 + 0.2
-        }));
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach(p => {
-                p.x += p.dx;
-                p.y += p.dy;
-
-                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(0, 240, 255, ${p.alpha})`;
-                ctx.fill();
-            });
-
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-    </script>
 </body>
 </html>
