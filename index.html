@@ -116,6 +116,55 @@
             </div>
         </section>
     </main>
+        <!-- PLACE THIS SCRIPT RIGHT ABOVE THE </BODY> TAG -->
+    <script>
+        // 1. MAKE THE REPOSITORY BUTTON WORK
+        const repoBtn = document.querySelector('.hero-actions .btn-primary');
+        if (repoBtn) {
+            repoBtn.addEventListener('click', () => {
+                // Change this URL to your actual GitHub repository link
+                window.open('https://github.com', '_blank');
+            });
+        }
+
+        // 2. MAKE THE NAVBAR NAVIGATION WORK (Home, Features, Docs)
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.page-section');
+
+        navLinks.forEach((link, index) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all links and sections
+                navLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked link
+                link.classList.add('active');
+                
+                // Show the corresponding section if it exists
+                if (sections[index]) {
+                    sections[index].classList.add('active');
+                } else {
+                    console.log(`Section for "${link.textContent}" needs to be created in your HTML.`);
+                }
+            });
+        });
+
+        // 3. MAKE THE GET STARTED & LEARN MORE BUTTONS NAVIGATE
+        const getStartedBtn = document.querySelector('header .btn-primary');
+        const learnMoreBtn = document.querySelector('.btn-secondary');
+
+        // Clicking "Get Started" or "Learn More" simulates clicking the "Features" tab
+        [getStartedBtn, learnMoreBtn].forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    if (navLinks[1]) navLinks[1].click(); // Triggers the second nav link (Features)
+                });
+            }
+        });
+    </script>
+
 
 </body>
 </html>
