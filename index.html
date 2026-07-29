@@ -4,38 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="9HvV_MPXWlPB06KMwelS_sWi2caNCp8y-pN2Q0XkAzA" />
-    
-    <title>Nova AI | Home of Minima - Intelligent. Ultra-Fast. Minimal.</title>
-    <meta name="description" content="Welcome to the official home of Nova AI and Minima. An intelligent, ultra-fast, and minimal ecosystem designed for peak automation performance. Explore our project repository.">
-    <meta name="keywords" content="Nova AI, Minima, Nova AI GitHub, Intelligent, Ultra-Fast, Minimal, Nova, AI, Open Source AI">
-    
-    <meta property="og:title" content="Nova AI | Home of Minima" />
-    <meta property="og:description" content="Intelligent. Ultra-Fast. Minimal." />
-    <meta property="og:type" content="website" />
-
+    <title>NOVA AI | Home of MINIMA</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
-
     <style>
-        :root {
-            --bg-color: #070913;
-            --card-bg: rgba(18, 24, 43, 0.65);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --primary-cyan: #00f0ff;
-            --primary-purple: #7000ff;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --gradient-glow: linear-gradient(135deg, #00f0ff, #7000ff);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        :root { --bg-color: #070913; --card-bg: rgba(18, 24, 43, 0.65); --border-color: rgba(255, 255, 255, 0.08); --primary-cyan: #00f0ff; --primary-purple: #7000ff; --text-main: #f1f5f9; --text-muted: #94a3b8; --gradient-glow: linear-gradient(135deg, #00f0ff, #7000ff); --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
         #bg-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
-        header { position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: rgba(7, 9, 19, 0.7); border-bottom: 1px solid var(--border-color); }
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(16px); background: rgba(7, 9, 19, 0.7); border-bottom: 1px solid var(--border-color); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; }
-        .logo { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.5rem; color: #fff; text-decoration: none; cursor: pointer; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.5rem; color: #fff; text-decoration: none; }
         .logo span { background: var(--gradient-glow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .logo-icon { width: 32px; height: 32px; background: var(--gradient-glow); border-radius: 8px; display: grid; place-items: center; font-size: 1rem; color: #fff; box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -44,7 +25,6 @@
         .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--gradient-glow); border-radius: 2px; }
         .btn-primary { background: var(--gradient-glow); color: #fff; padding: 0.7rem 1.5rem; border-radius: 30px; border: none; font-weight: 600; cursor: pointer; transition: var(--transition); box-shadow: 0 4px 20px rgba(0, 240, 255, 0.25); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(112, 0, 255, 0.4); }
-        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
         .btn-secondary { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: #fff; padding: 0.7rem 1.5rem; border-radius: 30px; font-weight: 600; cursor: pointer; transition: var(--transition); }
         .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
         main { flex: 1; margin-top: 80px; }
@@ -54,26 +34,20 @@
         .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 240, 255, 0.1); border: 1px solid rgba(0, 240, 255, 0.2); color: var(--primary-cyan); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; }
         .hero-title { font-family: 'Space Grotesk', sans-serif; font-size: 3.8rem; line-height: 1.1; margin-bottom: 1.5rem; font-weight: 700; }
         .hero-title span { background: var(--gradient-glow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-description { color: var(--text-muted); font-size: 1.35rem; line-height: 1.6; margin-bottom: 2rem; letter-spacing: 0.5px; }
+        .hero-description { color: var(--text-muted); font-size: 1.5rem; line-height: 1.6; margin-bottom: 2rem; letter-spacing: 0.5px; }
         .hero-description strong { color: #fff; font-weight: 700; }
         .hero-actions { display: flex; gap: 1rem; }
         .hero-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 24px; padding: 2.5rem; position: relative; backdrop-filter: blur(10px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); overflow: hidden; }
-        .hero-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0,240,255,0.1) 0%, rgba(0,0,0,0) 70%); pointer-events: none; }
         .minima-badge-large { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
         .model-tag { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
         .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
     </style>
 </head>
 <body>
-
     <canvas id="bg-canvas"></canvas>
-
     <header>
         <div class="nav-container">
-            <a class="logo">
-                <div class="logo-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                <span>NOVA AI</span>
-            </a>
+            <a class="logo"><div class="logo-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><span>NOVA <span>AI</span></span></a>
             <ul class="nav-links">
                 <li><a class="nav-link active">Home</a></li>
                 <li><a class="nav-link">Features</a></li>
@@ -82,89 +56,42 @@
             <button class="btn-primary">Get Started</button>
         </div>
     </header>
-
     <main>
         <section class="page-section active">
             <div class="hero">
                 <div>
                     <div class="badge"><i class="fa-solid fa-bolt"></i> Next-Gen Architecture</div>
                     <h1 class="hero-title">Experience <span>Nova AI</span></h1>
-                    
                     <p class="hero-description">
-                        <strong>Intelligent.</strong> 
-                        <strong>Ultra-Fast.</strong> 
-                        <strong>Minimal.</strong>
+                        <strong>Intelligent.</strong> <strong>Ultra-Fast.</strong> <strong>Minimal.</strong>
                     </p>
-                    
                     <div class="hero-actions">
                         <button class="btn-primary"><i class="fa-brands fa-github"></i> Repository</button>
                         <button class="btn-secondary">Learn More</button>
                     </div>
                 </div>
-
                 <div class="hero-card">
-                    <div class="minima-badge-large">
-                        <div class="model-tag">MINIMA</div>
-                        <div class="badge" style="margin: 0;">v1.0.0-alpha</div>
-                    </div>
-                    <p style="color: var(--text-muted); line-height: 1.5;">
-                        The minimalist engine driving ultra-fast processing speeds across the entire Nova AI framework.
-                    </p>
-                    <div class="stats-grid">
-                    </div>
+                    <div class="minima-badge-large"><div class="model-tag">MINIMA</div><div class="badge" style="margin: 0;">v1.0.0-alpha</div></div>
+                    <p style="color: var(--text-muted); line-height: 1.5;">The minimalist engine driving ultra-fast processing speeds across the entire Nova AI framework.</p>
+                    <div class="stats-grid"></div>
                 </div>
             </div>
         </section>
     </main>
-        <!-- PLACE THIS SCRIPT RIGHT ABOVE THE </BODY> TAG -->
     <script>
-        // 1. MAKE THE REPOSITORY BUTTON WORK
-        const repoBtn = document.querySelector('.hero-actions .btn-primary');
-        if (repoBtn) {
-            repoBtn.addEventListener('click', () => {
-                // Change this URL to your actual GitHub repository link
-                window.open('https://github.com', '_blank');
-            });
-        }
-
-        // 2. MAKE THE NAVBAR NAVIGATION WORK (Home, Features, Docs)
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.page-section');
-
         navLinks.forEach((link, index) => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                
-                // Remove active class from all links and sections
                 navLinks.forEach(l => l.classList.remove('active'));
                 sections.forEach(s => s.classList.remove('active'));
-                
-                // Add active class to clicked link
                 link.classList.add('active');
-                
-                // Show the corresponding section if it exists
-                if (sections[index]) {
-                    sections[index].classList.add('active');
-                } else {
-                    console.log(`Section for "${link.textContent}" needs to be created in your HTML.`);
-                }
+                if (sections[index]) sections[index].classList.add('active');
             });
         });
-
-        // 3. MAKE THE GET STARTED & LEARN MORE BUTTONS NAVIGATE
-        const getStartedBtn = document.querySelector('header .btn-primary');
-        const learnMoreBtn = document.querySelector('.btn-secondary');
-
-        // Clicking "Get Started" or "Learn More" simulates clicking the "Features" tab
-        [getStartedBtn, learnMoreBtn].forEach(btn => {
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    if (navLinks[1]) navLinks[1].click(); // Triggers the second nav link (Features)
-                });
-            }
-        });
+        const repoBtn = document.querySelector('.hero-actions .btn-primary');
+        if (repoBtn) repoBtn.addEventListener('click', () => window.open('https://github.com', '_blank'));
     </script>
-
-
 </body>
 </html>
